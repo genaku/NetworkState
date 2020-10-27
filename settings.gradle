@@ -1,0 +1,3 @@
+include ':networkstate'
+include ':app'
+rootProject.name = "NetworkState"
