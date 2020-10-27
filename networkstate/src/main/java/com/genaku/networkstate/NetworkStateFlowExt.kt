@@ -14,7 +14,7 @@ val defaultNetworkRequest: NetworkRequest = NetworkRequest.Builder()
     .addTransportType(NetworkCapabilities.TRANSPORT_ETHERNET)
     .build()
 
-fun getNetworkStateFlow(context: Context): AbstractNetworkStateFlow =
+fun getNetworkStateFlow(context: Context): INetworkStateFlow =
     when {
         Build.VERSION.SDK_INT >= Build.VERSION_CODES.N -> NougatNetworkStateFlow(context)
         Build.VERSION.SDK_INT >= Build.VERSION_CODES.M -> MarshmallowNetworkStateFlow(context)

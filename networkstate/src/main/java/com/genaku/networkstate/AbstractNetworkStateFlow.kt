@@ -5,11 +5,8 @@ import android.net.ConnectivityManager
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 
-abstract class AbstractNetworkStateFlow(context: Context) : StateFlow<Boolean> {
-
-    abstract fun stop()
+abstract class AbstractNetworkStateFlow(context: Context) : INetworkStateFlow {
 
     private val innerState = MutableStateFlow(false)
 
@@ -27,7 +24,7 @@ abstract class AbstractNetworkStateFlow(context: Context) : StateFlow<Boolean> {
     override val replayCache: List<Boolean>
         get() = innerState.replayCache
 
-    open fun start() {
+    override fun start() {
         postValue(isOnline())
     }
 

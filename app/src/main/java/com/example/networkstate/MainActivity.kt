@@ -4,13 +4,13 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.genaku.networkstate.AbstractNetworkStateFlow
+import com.genaku.networkstate.INetworkStateFlow
 import com.genaku.networkstate.getNetworkStateFlow
 import kotlinx.coroutines.flow.collect
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var onlineState: AbstractNetworkStateFlow
+    private lateinit var onlineState: INetworkStateFlow
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
